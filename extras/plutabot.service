@@ -1,0 +1,8 @@
+[Service]
+ExecStart=/usr/local/bin/plutabot -fifo=/irc/chaos-hd 
+
+[Unit]
+Description=plutabot
+
+[Install]
+WantedBy=multi-user.target
