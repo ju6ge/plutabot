@@ -11,6 +11,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/nnev/plutabot"
+
 	"github.com/robustirc/bridge/robustsession"
 	"gopkg.in/sorcix/irc.v2"
 )
@@ -91,6 +93,9 @@ func logic(fifo string) error {
 
 		case irc.PING:
 			cmd(irc.PONG, message.Params...)
+
+		case irc.PRIVMSG: //check msg for commads and react
+			plutabot.ParseCommandMessage(message.Params...)
 
 		case irc.NICK:
 		case irc.QUIT:
